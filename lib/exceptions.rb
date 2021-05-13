@@ -1,0 +1,1 @@
+class InvalidIntegerError < StandardError; end

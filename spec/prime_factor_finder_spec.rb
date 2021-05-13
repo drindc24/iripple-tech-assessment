@@ -1,4 +1,4 @@
-require_relative '../prime_factor_finder'
+require_relative '../lib/prime_factor_finder'
 
 RSpec.describe PrimeFactorFinder do
   subject { described_class.new(10) }
@@ -6,6 +6,12 @@ RSpec.describe PrimeFactorFinder do
   describe '#initialize' do
     it 'has a number attribute' do
       expect(subject.number).to eq 10
+    end
+
+    context 'given number is negative' do
+      it 'raises a custom exception' do
+        expect{ described_class.new(-1) }.to raise_error(InvalidIntegerError)
+      end
     end
   end
 
