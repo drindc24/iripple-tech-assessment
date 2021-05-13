@@ -1,10 +1,11 @@
 require 'prime'
-require 'exceptions'
+require_relative 'exceptions'
 
 class PrimeFactorFinder
   attr_reader :number
 
   def initialize(number)
+    raise ArgumentError unless number
     raise InvalidIntegerError if number < 0
 
     @number = number
